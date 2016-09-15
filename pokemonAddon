@@ -1,0 +1,11 @@
+pikachu for
+gengar ;
+eevee bool 
+flareon char
+vaporeon float 
+jolteon short 
+umbreon int
+espeon long
+glaceon long long 
+leafeon double
+sylveon string
