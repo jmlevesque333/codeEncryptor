@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
+
+using namespace std;
+
+void print(string line)
+{
+	cout << line << endl;
+}
+
+void encryptor()
+{
+	string line;
+	string line2;
+	string replaced;
+	string replacement;
+	int found = 0;
+	string x;
+	fstream input;
+	input.open("input.txt");
+	fstream addon;
+	addon.open("pokemonAddon.txt");
+	while (input.eof() != true)
+	{
+		getline(input, line);
+		while (addon.eof() != true)
+		{
+			found = 0;
+			getline(addon, line2);
+			stringstream s(line2);
+			s >> replacement;
+			s >> replaced;
+			while (found != -1)
+			{
+				found = -1;
+				found = line.find(replaced);
+				if (found != -1)
+				{
+					line.replace(found, replaced.length(), replacement);
+					line.insert(found, " ");
+					line.insert(found + replaced.length(), " ");
+				}
+			}
+			
+		}
+		print(line);
+
+	}
+	cout << line << endl;
+}
+
+
+int main()
+{
+	
+	encryptor();
+
+
+	return 0;
+}
